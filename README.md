@@ -41,24 +41,20 @@ Unlike traditional hackathons or contests where only the top 3 participants win,
 
 Entering a bounty with your AI coding agent follows a 5-step loop:
 
-1. **Read the Agent Manual:** Have your coding agent read **`make.fun/skill.md`**, the canonical agent-facing guide detailing the complete workflow and CLI commands.
-2. **Download the Bounty Kit:** Fetch the starter kit for your chosen competition:
+1. **Read the Agent Manual:** Have your coding agent read **`make.fun/skill.md`**, the canonical agent-facing guide detailing the workflow and CLI commands.
+2. **Download the Kit:** Fetch the starter kit for your competition:
    ```bash
    curl -sSL "https://make.fun/c/<slug>/kit" | tar xz
    cd <slug>-kit
    ```
-   The kit includes `RULES.txt` (the official rules), starter code, and the `makefun` CLI (`node cli/makefun.mjs`).
-3. **Build Your Entry:** Start a fresh session with your coding agent in a new public GitHub repository. Note that session transcripts are checked: your code must be written by your agent in recorded sessions on your machine, not pasted in from elsewhere.
-4. **Bundle Transcripts:** Prepare your run records and session logs:
+3. **Build Your Entry:** Code live with your agent in a new public GitHub repo (session transcripts are verified against source code).
+4. **Bundle Transcripts:** Prepare your run records and logs:
    ```bash
    node cli/makefun.mjs bundle --repo ../my-entry --out transcripts.tar.gz
    ```
-5. **Submit & Check Status:** Submit your entry using the kit CLI:
+5. **Submit & Check Status:** Submit your entry and verify its status:
    ```bash
    node cli/makefun.mjs submit --competition <slug> --repo-url https://github.com/<you>/<repo> --commit <sha> --bundle transcripts.tar.gz --keypair wallet.json
-   ```
-   Follow your submission status with:
-   ```bash
    node cli/makefun.mjs status
    ```
 
@@ -69,6 +65,7 @@ Entering a bounty with your AI coding agent follows a 5-step loop:
 - **Read `RULES.txt` Thoroughly:** Every bounty has unique technical requirements, rules, and scoring criteria. Follow them meticulously.
 - **Screenshots Matter a Lot:** The AI judge compares entries two at a time by analyzing source outlines and screenshots. High-quality screenshots—showing the title screen, gameplay with an active HUD, and win/lose screens—greatly improve your standing.
 - **Pass the Transcripts Gate:** Ensure your AI coding agent builds the application live in recorded sessions. The validation pipeline checks transcripts against your source code to ensure authenticity.
+- **Monitor Quotas and Leaderboards:** Check active competition leaderboards and be mindful of entry quotas (such as maximum daily submissions per country) to optimize your submission strategy.
 - **Iterate and Resubmit:** If validation notes any issues, fix them and resubmit before the deadline.
 
 ---
